@@ -13,8 +13,8 @@ window.CONFIG = {
   API_URL: "https://script.google.com/macros/s/AKfycby6XnruJYVn49HjEugE6vcWX4gIv4LggJNKqG3opMeXMmyWCaFeg0HzEznzkLQ7BwtYkw/exec",
 
   // 화면에 표시되는 행사 이름
-  EVENT_NAME_EN: "2026 Jeju International Casino Policy Forum",
-  EVENT_NAME_KO: "2026 제주 국제카지노 정책포럼",
+  EVENT_NAME_EN: "2026 The 10th Jeju International Casino Policy Forum",
+  EVENT_NAME_KO: "2026 제10회 제주 국제카지노 정책포럼",
 
   // 관리자 페이지 자동 새로고침 간격(초). 너무 짧으면 구글 사용량 제한에 걸릴 수 있습니다.
   ADMIN_REFRESH_SECONDS: 10
