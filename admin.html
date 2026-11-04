@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#1d3fae">
+  <title>현장 등록 관리 | Jeju ICPF 2026</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="en" data-event-en>2026 Jeju International Casino Policy Forum</div>
+    <div class="ko" data-event-ko>2026 제주 국제카지노 정책포럼</div>
+    <div class="page">현장 등록 관리자 페이지 · Staff only</div>
+  </header>
+  <div class="demo-banner" id="demoBanner" hidden>데모 모드입니다. 관리자 비밀번호: <b>demo</b> · 이 기기에서 등록한 데모 데이터만 보입니다.</div>
+
+  <!-- 로그인 -->
+  <section class="login" id="loginView">
+    <h2>스태프 로그인</h2>
+    <form id="loginForm">
+      <div class="field">
+        <label class="label" for="staffName">스태프 이름 <span class="opt">(지급 기록에 남습니다)</span></label>
+        <input class="input" id="staffName" type="text" placeholder="예: 박한결" maxlength="20" autocomplete="name">
+      </div>
+      <div class="field">
+        <label class="label" for="adminKey">관리자 비밀번호</label>
+        <input class="input" id="adminKey" type="password" autocomplete="current-password" required>
+      </div>
+      <button class="btn" type="submit" id="loginBtn">들어가기</button>
+      <div class="alert warn" id="loginAlert"></div>
+    </form>
+  </section>
+
+  <!-- 관리 화면 -->
+  <main class="admin-wrap" id="adminView" hidden>
+    <div class="stats">
+      <div class="stat"><div class="t">현장 등록</div><div class="v" id="stTotal">0</div></div>
+      <div class="stat"><div class="t">이름표 지급</div><div class="v" id="stBadge">0</div></div>
+      <div class="stat"><div class="t">기념품 지급</div><div class="v" id="stGift">0</div></div>
+    </div>
+
+    <div class="toolbar">
+      <div class="row">
+        <input class="search" id="q" type="search" placeholder="이름·소속·연락처·등록번호 검색">
+        <button class="btn-sm" id="refreshBtn" type="button">↻ 새로고침</button>
+        <a class="btn-sm" id="sheetLink" href="#" target="_blank" rel="noopener" hidden style="display:inline-flex;align-items:center;text-decoration:none;color:inherit">구글 시트 열기</a>
+      </div>
+      <div class="row">
+        <label class="small">보기</label>
+        <button class="chip on" data-filter="all" type="button">전체</button>
+        <button class="chip" data-filter="badge" type="button">이름표 미지급</button>
+        <button class="chip" data-filter="gift" type="button">기념품 미지급</button>
+      </div>
+      <div class="row">
+        <label class="small" for="sort1">1차 정렬</label>
+        <select class="sel" id="sort1"></select>
+        <select class="sel" id="dir1"><option value="asc">오름차순 ↑</option><option value="desc">내림차순 ↓</option></select>
+        <label class="small" for="sort2" style="margin-left:6px">2차 정렬</label>
+        <select class="sel" id="sort2"></select>
+        <select class="sel" id="dir2"><option value="asc">오름차순 ↑</option><option value="desc">내림차순 ↓</option></select>
+      </div>
+      <div class="status-line">
+        <span><span class="dot" id="dot"></span><span id="statusText">연결 중…</span></span>
+        <label><input type="checkbox" id="auto" checked> 자동 새로고침</label>
+        <span id="who"></span>
+        <button class="undo" id="logoutBtn" type="button">로그아웃</button>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table class="list">
+        <thead><tr id="thead"></tr></thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="empty" hidden>표시할 등록자가 없습니다.</div>
+    </div>
+  </main>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="config.js"></script>
+  <script src="assets/api.js"></script>
+  <script src="assets/admin.js"></script>
+</body>
+</html>
