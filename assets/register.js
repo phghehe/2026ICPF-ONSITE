@@ -140,7 +140,8 @@
     hideAlert();
     var last = $("lastName").value.trim(), first = $("firstName").value.trim();
     var aff = $("affiliation").value.trim(), title = $("title").value.trim();
-    var contact = $("contact").value.trim(), ctype = contactType(contact);
+    var contact = "", ctype = "";
+
 
     if (!selected) { var m = exactMatch(input.value); if (m) choose({ ko: m.ko, en: m.en }); }
 
@@ -153,7 +154,6 @@
     if (nameBad) { bad = true; firstBad = !last ? $("lastName") : $("firstName"); }
     check(!selected, "err-country", [input]);
     check(!aff, "err-affiliation", [$("affiliation")]);
-    check(!ctype, "err-contact", [$("contact")]);
 
     if (bad) {
       showAlert("입력하지 않았거나 확인이 필요한 항목이 있습니다.<br>Please check the highlighted fields.");
